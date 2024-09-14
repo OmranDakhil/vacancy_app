@@ -27,8 +27,7 @@ class VacancyCubit extends Cubit<VacancyState> {
       vacancies = await apiService.getVacancies();
       emit(VacancyLoadedState());
     } catch (e) {
-      emit(VacancyErrorState(
-          errMsg: "please check your internet connection then retry"));
+      emit(VacancyErrorState(errMsg: e.toString()));
     }
   }
 }
